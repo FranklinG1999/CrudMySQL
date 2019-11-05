@@ -2,10 +2,14 @@ package com.example.crudmysqlandroid;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -55,5 +59,59 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
+        toolbar.setTitleMargin(0, 0, 0, 0);
+        toolbar.setSubtitle("CRUD MySQL~2019");
+        toolbar.setSubtitleTextColor(getResources().getColor(R.color.mycolor));
+        toolbar.setTitle("Practica Git");
+        setSupportActionBar(toolbar);
+
+        ///y esto para pantalla completa (oculta incluso la barra de estado)
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        et_codigo = (EditText) findViewById(R.id.etcodigo);
+        et_descripcion = (EditText) findViewById(R.id.etdescripción);
+        et_precio = (EditText) findViewById(R.id.etprecio);
+        btn_guardar = (Button) findViewById(R.id.btnguardar);
+        btn_consultaCodigo = (Button) findViewById(R.id.btnconsultar1);
+        btn_consultaDescripcion = (Button) findViewById(R.id.btnconsultar2);
+        btn_eliminar = (Button) findViewById(R.id.btneliminar);
+        btn_actualizar = (Button) findViewById(R.id.btnmodificar);
+        //tv_resultado = (TextView) findViewById(R.id.tv_resultado);
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogConfirmacion();
+            }
+        });
+
+
+        /******************************************************************/
+        //BLOQUE DE CÓDIGO PARA MOSTRAR DATOS DE LA BUSQUEDA//
+        try {
+            Intent intent = getIntent();
+            Bundle bundle = intent.getExtras();
+            if (bundle != null) {
+
+                senal = bundle.getString("senal");
+                codigo = bundle.getString("codigo");
+                descripcion = bundle.getString("descripcion");
+                precio = bundle.getString("precio");
+                if (senal.equals("1")) {
+                    et_codigo.setText(codigo);
+                    et_descripcion.setText(descripcion);
+                    et_precio.setText(precio);
+                    //finish();
+                }else if(senal.equals("2")){
+
+                }
+            }
+        }catch (Exception e){
+
+        }
     }
 }
