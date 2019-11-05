@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logn">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login Avanzado"
+        android:textStyle="bold"
+        android:textColor="#F50057"
+        android:textSize="40dp"
+        android:layout_marginTop="100dp"
+        android:textAlignment="center"
+        />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="79dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/anonimo2"
+        android:layout_marginLeft="-4dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/edit1"
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp"
+                android:textColorHint="#ffff"
+                android:hint="Usuario"
+                android:textColor="#E91E63"
+                android:background="@drawable/estiloedt2"
+                android:paddingLeft="10dp"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="8dp"
+                />
+            <EditText
+                android:id="@+id/edit2"
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#ffff"
+                android:hint="Password"
+                android:textColor="#E91E63"
+                android:background="@drawable/estiloedt2"
+                android:paddingLeft="10dp"
+                android:drawableStart="@drawable/ic_security"
+                android:drawablePadding="8dp"
+                />
+
+
+            <Button
+                android:id="@+id/btnlog"
+                android:layout_width="170dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="LOG-IN"
+                android:background="#F50057"
+                android:textColor="#ffff"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
