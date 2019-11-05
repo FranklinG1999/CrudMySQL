@@ -69,7 +69,7 @@ public class Consulta_RecyclerView extends AppCompatActivity {
         setContentView(R.layout.activity_consulta__recycler_view);
 
         Toolbar toolbar = findViewById(R.id.toolbar1);
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_create_black_24dp));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
         toolbar.setSubtitle("Consulta de Artículos");
@@ -160,7 +160,7 @@ public class Consulta_RecyclerView extends AppCompatActivity {
         //startActivity(new Intent(getApplicationContext(),MainActivity.class));
         String mensaje = "¿Realmente desea salir?";
         dialogo = new AlertDialog.Builder(Consulta_RecyclerView.this);
-        dialogo.setIcon(R.drawable.ic_close);
+        dialogo.setIcon(R.drawable.ic_security);
         dialogo.setTitle("Advertencia");
         dialogo.setMessage(mensaje);
         dialogo.setCancelable(false);

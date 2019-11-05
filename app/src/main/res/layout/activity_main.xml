@@ -1,222 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:background="#111">
+    tools:context="com.example.crudmysqlandroid.MainActivity">
 
-    <ScrollView
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-            <ImageView
-                android:layout_width="375dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/misetup">
+            android:layout_height="?attr/actionBarSize"
+            android:background="#000"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-            </ImageView>
+    </com.google.android.material.appbar.AppBarLayout>
 
+    <include layout="@layout/content_main" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-
-            <TextView
-                android:id="@+id/tvcodigo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Código del articulo"
-                android:textSize="24dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                android:textColor="#F7FAFA"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                />
-
-            <EditText
-                android:id="@+id/etcodigo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ingrese el codigo"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:inputType="numberDecimal"
-                android:background="@drawable/estiloedt1"
-                android:shadowColor="#1DA842"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:paddingLeft="15dp"
-                android:drawableStart="@drawable/ic_create_black_24dp"
-                android:drawablePadding="8dp"
-
-                />
-
-            <TextView
-                android:id="@+id/tvdescripción"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Descripción"
-                android:textSize="24dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                android:textColor="#F7FAFA"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-
-                />
-
-            <EditText
-                android:id="@+id/etdescripción"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:inputType="text"
-                android:background="@drawable/estiloedt1"
-                android:shadowColor="#1DA842"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:paddingLeft="15dp"
-                android:drawableStart="@drawable/ic_description"
-                android:drawablePadding="8dp"
-                android:hint="Ingrese una descripción"
-
-                />
-
-            <TextView
-                android:id="@+id/tvprecio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Precio"
-                android:textSize="24dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                android:textColor="#F7FAFA"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                />
-
-            <EditText
-                android:id="@+id/etprecio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                android:inputType="numberDecimal"
-                android:background="@drawable/estiloedt1"
-                android:shadowColor="#1DA842"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="5"
-                android:layout_marginBottom="15dp"
-                android:paddingLeft="15dp"
-                android:drawableStart="@drawable/ic_monetization"
-                android:drawablePadding="8dp"
-                android:hint="Ingrese el precio"
-
-                />
-            <Button
-                android:id="@+id/btnguardar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
-                android:background="@drawable/estilobtn1"
-                android:shadowColor="#12FF2A"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="25"
-                android:text="Guardar"
-
-                android:layout_marginBottom="5dp"
-
-                />
-            <Button
-                android:id="@+id/btnconsultar1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
-                android:text="Consulta por código"
-
-                android:background="@drawable/estilobtn1"
-                android:shadowColor="#12FF2A"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="25"
-                android:layout_marginBottom="5dp"
-
-                />
-            <Button
-                android:id="@+id/btnconsultar2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
-                android:text="Consulta por descripción"
-
-                android:background="@drawable/estilobtn1"
-                android:shadowColor="#12FF2A"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="25"
-                android:layout_marginBottom="5dp"
-
-                />
-            <Button
-                android:id="@+id/btneliminar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
-                android:text="Eliminar"
-
-                android:background="@drawable/estilobtn1"
-                android:shadowColor="#12FF2A"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="25"
-                android:layout_marginBottom="5dp"
-
-                />
-            <Button
-                android:id="@+id/btnmodificar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="45dp"
-                android:text="Modificar"
-
-                android:background="@drawable/estilobtn1"
-                android:shadowColor="#12FF2A"
-                android:shadowDx="0"
-                android:shadowDy="0"
-                android:shadowRadius="25"
-                />
-
-            <TextView
-                android:id="@+id/tvmensaje"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mensaje"
-                android:textSize="25dp"
-                android:textColor="#ffff"
-                android:textStyle="italic"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:gravity="center"/>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -35,18 +35,20 @@ public class MainActivity extends AppCompatActivity {
     String descripcion = "";
     String precio = "";
 
-
+    MantenimientoMySQL manto = new MantenimientoMySQL();
+    Dto datos = new Dto();
 
     //Banderas para saber estados de métodos del CRUD.
     boolean estadoGuarda = false;
     boolean estadoEliminar = false;
 
     AlertDialog.Builder dialogo;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new android.app.AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_security)
+                    .setIcon(R.drawable.ic_close)
                     .setTitle("Advertencia")
                     .setMessage("¿Realmente desea salir?")
                     .setNegativeButton(android.R.string.cancel, null)
@@ -59,14 +61,15 @@ public class MainActivity extends AppCompatActivity {
                     .show();
             return true;
         }
+        //para las demas cosas, se reenvia el evento al listener habitual
         return super.onKeyDown(keyCode, event);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
@@ -79,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
         ///y esto para pantalla completa (oculta incluso la barra de estado)
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        et_codigo = (EditText) findViewById(R.id.etcodigo);
-        et_descripcion = (EditText) findViewById(R.id.etdescripción);
-        et_precio = (EditText) findViewById(R.id.etprecio);
-        btn_guardar = (Button) findViewById(R.id.btnguardar);
-        btn_consultaCodigo = (Button) findViewById(R.id.btnconsultar1);
-        btn_consultaDescripcion = (Button) findViewById(R.id.btnconsultar2);
-        btn_eliminar = (Button) findViewById(R.id.btneliminar);
-        btn_actualizar = (Button) findViewById(R.id.btnmodificar);
+        et_codigo = (EditText) findViewById(R.id.et_codigo);
+        et_descripcion = (EditText) findViewById(R.id.et_descripcion);
+        et_precio = (EditText) findViewById(R.id.et_precio);
+        btn_guardar = (Button) findViewById(R.id.btn_guardar);
+        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultaCodigo);
+        btn_consultaDescripcion = (Button) findViewById(R.id.btn_consultaDescripcion);
+        btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
+        btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
         //tv_resultado = (TextView) findViewById(R.id.tv_resultado);
 
 
@@ -121,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+        /******************************************************************/
+
+
+
         btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -413,4 +420,7 @@ public class MainActivity extends AppCompatActivity {
         String precio = preferences.getString("precio","0.0");
         return precio;   //return preferences.getString("tiempo", "Sin configurar.");
     }
+
+
+
 }
